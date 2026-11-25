@@ -1,0 +1,192 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#18201b"><title>Arda Atlas — Mapa da Terra-média</title><style>:root{font-family:Georgia,'Times New Roman',serif;color:#eadbbb;background:#172019;color-scheme:dark;--gold:#c8aa6e}*{box-sizing:border-box}body{margin:0;height:100dvh;min-height:360px;display:flex;flex-direction:column;overflow:hidden}header{height:77px;flex-shrink:0;display:flex;justify-content:space-between;align-items:center;padding:0 32px;border-bottom:1px solid #b79a5d55;background:#19221c}.brand{display:flex;gap:14px;align-items:center}.ring{display:grid;place-items:center;width:43px;height:43px;border:2px solid #b99a5d;border-radius:50%;box-shadow:inset 0 0 0 3px #19221c,inset 0 0 0 4px #8e754a;color:#e2c78b;font-size:27px}.eyebrow,.era,.search-box label,footer,.minimap span{font-family:Arial,sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;color:#c2a973}h1{font-size:28px;font-weight:normal;letter-spacing:1px;margin:3px 0 0}header .header-right{display:flex;align-items:center;gap:22px}button{font:inherit;cursor:pointer;color:#e9d6a6;background:#253027;border:1px solid #9f8755;border-radius:4px}button:hover{background:#394335;color:#fff0c9}button:focus-visible,input:focus-visible,#viewport:focus-visible{outline:2px solid #f4d79c;outline-offset:2px}.ghost{width:32px;height:32px;font-size:18px}main{flex:1;min-height:0;padding:12px 14px 0}#viewport{position:relative;overflow:hidden;width:100%;height:100%;background:#b5a071;border:1px solid #a78c55;touch-action:none;isolation:isolate;user-select:none}#world{position:absolute;left:0;top:0;width:1600px;height:1000px;transform-origin:0 0;will-change:transform}#world svg{width:100%;height:100%;display:block}#viewport.space #world{cursor:grab}#viewport.dragging #world{cursor:grabbing}.map-shade{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 85px #3e2b1566;z-index:1}.search-box,.map-tools,.legend,.hint,.minimap,#detail{position:absolute;z-index:2}.search-box{top:22px;left:24px;width:256px;background:#202a23f5;border:1px solid #a28b58;padding:14px;box-shadow:0 5px 20px #29241544;border-radius:5px}.search-box label{display:block;margin-bottom:9px}.search-input{display:flex;gap:8px;align-items:center;border-bottom:1px solid #8f7951;padding:4px 0}.search-input span{font-size:25px;color:#d1b77b}.search-input input{font:14px Arial,sans-serif;background:none;border:0;width:100%;min-width:0;color:#f2e4c6;outline:none}.search-input input::placeholder{color:#c3b89f}#results{max-height:230px;overflow:auto;margin-top:8px}#results button{display:block;width:100%;border:0;text-align:left;background:transparent;padding:8px;font-size:14px}#results button:hover{background:#3b4739}.map-tools{right:23px;top:23px;width:48px;background:#202a23;border:1px solid #a28b58;border-radius:5px;display:flex;flex-direction:column;align-items:center;padding:4px;gap:4px;box-shadow:0 3px 15px #372b1b55}.map-tools button{font-size:25px;width:38px;height:38px;border:0;background:transparent}.map-tools button:hover{background:#394335}.map-tools button:disabled{opacity:.35;cursor:default}.map-tools span{font:10px Arial,sans-serif;color:#d7c7a1;padding:1px}.map-tools #reset{border-top:1px solid #7f6b47;border-radius:0;font-size:22px}.legend{left:23px;bottom:24px;display:flex;gap:12px;padding:10px 13px;background:#202a23e8;border:1px solid #a28b58;border-radius:4px;font:11px Arial,sans-serif;color:#e3d6b7}.hint{bottom:24px;left:50%;transform:translateX(-50%);white-space:nowrap;background:#202a23e8;padding:9px 13px;border:1px solid #a28b58;border-radius:4px;font:11px Arial,sans-serif;color:#ded1b0}kbd{font:10px Arial,sans-serif;padding:3px 5px;border:1px solid #b8a371;border-radius:3px} .hint span{margin:0 6px}.minimap{width:156px;bottom:24px;right:23px;border:1px solid #a28b58;background:#202a23;padding:6px;border-radius:4px}.minimap svg{display:block;width:100%;background:#53615a}.minimap span{font-size:8px;display:block;text-align:center;margin-top:5px}#detail{left:24px;top:132px;width:256px;max-width:calc(100% - 96px);padding:19px 18px;background:#202a23f5;border:1px solid #a28b58;box-shadow:0 5px 20px #29241544;border-radius:5px}#detail h2{font-size:25px;font-weight:400;margin:10px 0}#detail p{font-size:14px;line-height:1.6;color:#e2d4b5;margin-bottom:0}#close{position:absolute;right:8px;top:7px;border:0;background:none;font-size:23px}footer{display:flex;justify-content:space-between;padding:11px 28px;letter-spacing:1.5px;font-size:9px;flex-shrink:0}dialog{width:min(430px,90vw);background:#202a23;color:#eadbbb;border:1px solid #a28b58;padding:27px;border-radius:6px}dialog::backdrop{background:#111b13aa}dialog h2{font-weight:normal}dialog p{line-height:1.55}dialog button{padding:10px 16px} .place{cursor:pointer;outline:none}.place .halo{opacity:0}.place:hover .halo,.place:focus .halo,.place.selected .halo{opacity:1}.place:focus .pin{stroke:#fff5ce;stroke-width:3}.place text{paint-order:stroke;stroke:#dbc491;stroke-width:3;stroke-linejoin:round}.place.selected text{fill:#7e271c}.region{pointer-events:none} [hidden]{display:none!important}@media(max-width:800px){header{height:65px;padding:0 16px}.era{display:none}main{padding:7px 7px 0}.search-box{left:10px;top:10px;width:210px;padding:10px}.map-tools{right:10px;top:10px}.legend{display:none}.hint{left:10px;bottom:10px;transform:none;font-size:10px;padding:8px}.minimap{right:10px;bottom:10px;width:104px}#detail{left:10px;top:104px;width:225px}footer{padding:9px 12px;font-size:8px;letter-spacing:.6px}h1{font-size:24px}}@media(max-width:390px){.minimap{display:none}.hint{right:10px;white-space:normal}}
+</style></head><body>
+<header><div class="brand"><span class="ring" aria-hidden="true">✧</span><div><span class="eyebrow">UM ATLAS DA TERCEIRA ERA</span><h1>Terra-média</h1></div></div><div class="header-right"><span class="era">✦ &nbsp; TERCEIRA ERA</span><button id="help" class="ghost" aria-label="Como navegar" title="Como navegar">?</button></div></header>
+<main><section id="viewport" aria-label="Mapa interativo da Terra-média" tabindex="0"><div id="world"></div><div class="map-shade"></div><div class="search-box"><label for="search">EXPLORE ARDA</label><div class="search-input"><span aria-hidden="true">⌕</span><input id="search" autocomplete="off" placeholder="Buscar um lugar..." type="search"></div><div id="results" hidden></div></div><div class="map-tools"><button id="plus" title="Aumentar zoom" aria-label="Aumentar zoom">+</button><span id="zoom-level">100%</span><button id="minus" title="Diminuir zoom" aria-label="Diminuir zoom">−</button><button id="reset" title="Ver mapa inteiro" aria-label="Ver mapa inteiro">⌂</button></div><div id="detail" hidden><button id="close" aria-label="Fechar detalhes">×</button><span id="kind" class="eyebrow"></span><h2 id="place-name"></h2><p id="description"></p></div><div class="legend"><span>✧ &nbsp; Localidade</span><span>⛰ &nbsp; Montanhas</span><span>♠ &nbsp; Florestas</span></div><div class="hint"><kbd>ESPAÇO</kbd> + arraste <span>·</span> Rodinha para zoom</div><div class="minimap"><svg viewBox="0 0 1600 1000" aria-hidden="true"><path id="mini-land" fill="#b7a16e" stroke="#dfcda3" stroke-width="7"/><rect id="mini-view" fill="#e6d3a3" fill-opacity=".2" stroke="#fff2cb" stroke-width="15"/></svg><span>VISÃO GERAL</span></div></section></main>
+<footer><span>ARDA ATLAS &nbsp; / &nbsp; PROJETO DE FÃ</span><span>Cartografia ilustrativa · não oficial</span></footer><dialog id="help-dialog"><h2>Explore a Terra-média</h2><p>Segure Espaço e arraste com o botão esquerdo do mouse para mover o mapa. Use a rodinha ou os botões + e − para aproximar e afastar.</p><p>Em telas sensíveis ao toque, arraste com um dedo e use dois dedos para ampliar. Selecione um local para descobrir sua história. As setas também movem o mapa quando ele está em foco.</p><button id="help-close">Começar a explorar</button></dialog><script>"use strict";
+const $ = (id) => document.getElementById(id);
+const viewport = $('viewport'), world = $('world'), search = $('search'), results = $('results');
+const W = 1600, H = 1000;
+const places = [
+    { name: 'Portos Cinzentos', x: 298, y: 350, kind: 'PORTO ÉLFICO', description: 'Refúgio de Círdan em Lindon, de onde partem os navios élficos rumo ao Oeste.' },
+    { name: 'Condado', x: 435, y: 390, kind: 'REGIÃO DOS HOBBITS', description: 'Terra de colinas, aldeias e jardins. Lar de Bilbo e Frodo Bolseiro e ponto de partida de suas aventuras.' },
+    { name: 'Bri', x: 550, y: 397, kind: 'VILA', description: 'Povoado situado entre o Condado e Valfenda, conhecido pela hospedaria Pônei Saltitante.' },
+    { name: 'Valfenda', x: 732, y: 362, kind: 'REFÚGIO ÉLFICO', description: 'Vale oculto onde Elrond vive. Aqui se reúne o conselho que decide o destino do Um Anel.' },
+    { name: 'Moria', x: 767, y: 491, kind: 'REINO SUBTERRÂNEO', description: 'Khazad-dûm, antiga morada dos anões nas Montanhas Sombrias. Suas profundezas guardam uma ameaça ancestral.' },
+    { name: 'Lothlórien', x: 857, y: 522, kind: 'REINO ÉLFICO', description: 'Floresta dourada dos elfos, governada por Galadriel e Celeborn.' },
+    { name: 'Isengard', x: 710, y: 630, kind: 'FORTALEZA', description: 'Vale fortificado que abriga a torre de Orthanc, morada de Saruman.' },
+    { name: 'Edoras', x: 820, y: 696, kind: 'CAPITAL DE ROHAN', description: 'Sede dos reis de Rohan, aos pés das Montanhas Brancas. No alto fica o salão dourado de Meduseld.' },
+    { name: 'Abismo de Helm', x: 735, y: 706, kind: 'FORTALEZA', description: 'Fortaleza de Rohan protegida pelas montanhas, palco de uma importante batalha da Guerra do Anel.' },
+    { name: 'Minas Tirith', x: 1050, y: 759, kind: 'CIDADE DE GONDOR', description: 'A Cidade Branca, construída em níveis sobre a encosta de Mindolluin, defende Gondor contra Mordor.' },
+    { name: 'Osgiliath', x: 1110, y: 732, kind: 'CIDADE EM RUÍNAS', description: 'Antiga capital de Gondor, erguida às margens do Anduin.' },
+    { name: 'Minas Morgul', x: 1180, y: 752, kind: 'FORTALEZA SOMBRIA', description: 'Outrora Minas Ithil, agora uma fortaleza sob domínio dos Nazgûl.' },
+    { name: 'Montanha da Perdição', x: 1304, y: 691, kind: 'VULCÃO', description: 'Orodruin, onde Sauron forjou o Um Anel e onde ele poderia ser destruído.' },
+    { name: 'Barad-dûr', x: 1412, y: 676, kind: 'FORTALEZA SOMBRIA', description: 'A Torre Escura, fortaleza de Sauron no coração de Mordor.' },
+    { name: 'Portão Negro', x: 1198, y: 630, kind: 'FORTALEZA', description: 'Entrada fortificada ao noroeste de Mordor, também chamada Morannon.' },
+    { name: 'Erebor', x: 1095, y: 250, kind: 'REINO DOS ANÕES', description: 'A Montanha Solitária, antigo reino dos anões e destino da jornada de Thorin e Bilbo.' },
+    { name: 'Dale', x: 1128, y: 279, kind: 'CIDADE', description: 'Cidade dos homens próxima à Montanha Solitária, reconstruída após a queda de Smaug.' },
+    { name: 'Esgaroth', x: 1130, y: 330, kind: 'CIDADE DO LAGO', description: 'Cidade construída sobre o Lago Comprido, importante ponto comercial do Norte.' },
+    { name: 'Dol Guldur', x: 966, y: 477, kind: 'FORTALEZA SOMBRIA', description: 'Fortaleza sombria situada ao sul da Floresta das Trevas.' },
+    { name: 'Angmar', x: 645, y: 175, kind: 'ANTIGO REINO', description: 'Região setentrional associada ao antigo reino do Rei Bruxo.' },
+    { name: 'Fangorn', x: 804, y: 603, kind: 'FLORESTA', description: 'Floresta ancestral dos ents, incluindo Barbárvore.' },
+    { name: 'Dol Amroth', x: 807, y: 839, kind: 'CIDADE COSTEIRA', description: 'Principado de Gondor à beira da Baía de Belfalas.' },
+    { name: 'Umbar', x: 1016, y: 946, kind: 'PORTO', description: 'Porto ao sul de Gondor, conhecido por seus corsários.' },
+    { name: 'Forlindon', x: 236, y: 251, kind: 'REGIÃO ÉLFICA', description: 'Terras ao norte do Golfo de Lhûn, parte do reino élfico de Lindon.' },
+];
+const land = 'M120 -20 L1600 -20 L1600 1000 L1050 1000 L1020 967 1004 939 1040 914 1002 893 970 901 954 872 918 867 886 890 855 872 838 844 797 849 764 820 746 802 713 806 681 784 640 798 601 778 585 750 554 743 531 712 490 711 452 680 470 649 433 622 411 593 373 580 351 550 317 529 279 487 271 450 243 431 262 392 230 364 283 354 298 337 252 332 224 343 198 317 185 270 153 254 175 211 150 177 164 140 131 119 145 83 118 49 Z';
+let seed = 209;
+const rand = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+const path = (d, stroke, width, extra = '') => `<path d="${d}" fill="none" stroke="${stroke}" stroke-width="${width}" stroke-linecap="round" stroke-linejoin="round" ${extra}/>`;
+const ranges = [[[690, 80], [710, 130], [725, 180], [720, 240], [748, 291], [751, 349], [767, 407], [778, 465], [784, 521], [765, 578], [735, 625]], [[577, 120], [620, 104], [663, 100], [690, 105]], [[818, 115], [861, 107], [920, 119], [978, 137], [1030, 151], [1076, 160]], [[742, 728], [784, 748], [831, 751], [877, 760], [923, 766], [969, 772], [1010, 762]], [[1190, 657], [1170, 700], [1187, 740], [1187, 786], [1215, 816], [1265, 819], [1325, 823], [1391, 817], [1450, 796], [1502, 772]], [[1207, 650], [1267, 625], [1325, 621], [1385, 621], [1449, 625], [1504, 645]], [[253, 132], [265, 186], [272, 234], [285, 286]], [[452, 181], [487, 191], [515, 218], [530, 247]]];
+function mountain(x, y, s) { return `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) scale(${s.toFixed(2)})"><path d="M-19 10 -5 -12 0 -20 8 -9 20 10 10 8 3 12 -8 8Z" fill="#b6a07a" stroke="#64513b" stroke-width="1.2"/><path d="M0 -20 0 -9 -6 -2 -5 5 -12 9 M0 -9 7 -3 4 2 13 9 M-4 -10 0 -6 5 -10" fill="none" stroke="#736047" stroke-width="1.1"/><path d="M-5 -12 0 -20 8 -9 3 -12 0 -7 -3 -10Z" fill="#ece0bc" opacity=".85"/></g>`; }
+function range(points) { let out = ''; for (let i = 0; i < points.length - 1; i++) {
+    let [x, y] = points[i], [xx, yy] = points[i + 1];
+    let n = Math.max(2, Math.round(Math.hypot(xx - x, yy - y) / 15));
+    for (let j = 0; j < n; j++) {
+        let t = j / n;
+        out += mountain(x + (xx - x) * t + (rand() - .5) * 23, y + (yy - y) * t + (rand() - .5) * 17, .63 + rand() * .68);
+    }
+} return out; }
+function forest(cx, cy, rx, ry, n) { let out = ''; for (let i = 0; i < n; i++) {
+    let a = rand() * Math.PI * 2, r = Math.sqrt(rand()), x = cx + Math.cos(a) * rx * r, y = cy + Math.sin(a) * ry * r, s = .6 + rand() * .6;
+    out += `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) scale(${s.toFixed(2)})"><path d="M0 -10 -6 -1 -3 -1 -8 5 8 5 3 -1 6 -1Z" fill="#77805a" stroke="#4b573e" stroke-width=".7"/><path d="M0 4v5" stroke="#5c4933" stroke-width="1.3"/></g>`;
+} return out; }
+const forests = [[961, 320, 75, 139, 340], [867, 513, 51, 45, 105], [808, 593, 50, 34, 90], [372, 460, 45, 30, 70], [584, 287, 65, 38, 100], [1090, 493, 50, 48, 60], [305, 620, 45, 35, 70], [1505, 288, 73, 95, 100]];
+const regions = [['FORODWAITH', 960, 67, 21], ['ERIADOR', 485, 313, 25], ['LINDON', 206, 225, 16, -70], ['ANGMAR', 625, 143, 15], ['RHOVANION', 1060, 420, 23], ['FLORESTA DAS TREVAS', 964, 354, 14, -78], ['MONTANHAS SOMBRIAS', 696, 450, 14, -82], ['ROHAN', 879, 659, 24], ['GONDOR', 944, 811, 23], ['MORDOR', 1350, 759, 28], ['RHÛN', 1455, 379, 28], ['HARAD', 1332, 942, 27], ['BELEGAER', 144, 660, 24, -16], ['ENEDWAITH', 583, 571, 17], ['DUNLAND', 631, 650, 15], ['MONTANHAS BRANCAS', 890, 728, 13], ['BAÍA DE BELFALAS', 697, 903, 13]];
+const rivers = ['M803 162 Q837 225 825 285 T846 389 Q881 455 886 521 T935 610 Q980 654 1001 698 T1092 748 Q1113 805 1052 828 T941 864', 'M740 367 Q689 384 652 408 T558 452 Q516 470 488 510 T373 580', 'M544 266 Q522 330 505 360 T447 430 Q435 484 470 526', 'M727 626 Q724 659 776 672 T895 687 Q947 683 1001 698', 'M842 751 Q841 804 797 849', 'M1130 326 Q1115 371 1154 397 T1300 442', 'M1270 474 Q1326 474 1370 461'];
+const roads = ['M298 350 Q368 356 435 390 L550 397 Q651 383 732 362', 'M550 397 Q585 471 638 525 T710 630 L735 706 L820 696 Q945 680 1050 759', 'M1050 759 L1110 732 1180 752', 'M857 522 Q944 458 966 477', 'M1095 250 L1128 279 1130 330'];
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" aria-label="Mapa ilustrativo da Terra-média"><defs><filter id="paper"><feTurbulence type="fractalNoise" baseFrequency=".045" numOctaves="3" seed="12"/><feColorMatrix type="saturate" values="0"/></filter><radialGradient id="parch"><stop stop-color="#f1ddb0"/><stop offset="1" stop-color="#b99c65"/></radialGradient><pattern id="waves" width="55" height="38" patternUnits="userSpaceOnUse"><path d="M5 14q8 -5 16 0t16 0 M26 31q5 -3 10 0t10 0" fill="none" stroke="#52675f" stroke-opacity=".28" stroke-width="1"/></pattern><clipPath id="landclip"><path d="${land}"/></clipPath></defs><rect width="1600" height="1000" fill="#a7aea0"/><rect width="1600" height="1000" fill="url(#waves)"/><path d="${land}" fill="none" stroke="#5b6559" stroke-width="12" opacity=".35"/><path d="${land}" fill="url(#parch)" stroke="#6d5f42" stroke-width="3"/><g clip-path="url(#landclip)"><ellipse cx="1350" cy="726" rx="173" ry="113" fill="#ab8464" opacity=".45"/><ellipse cx="960" cy="330" rx="100" ry="170" fill="#859168" opacity=".18"/><ellipse cx="430" cy="388" rx="115" ry="65" fill="#a0a16c" opacity=".22"/><rect width="1600" height="1000" filter="url(#paper)" opacity=".15" style="mix-blend-mode:multiply"/>${roads.map(d => path(d, '#96784d', 1.5, 'stroke-dasharray="3 6" opacity=".7"')).join('')}${rivers.map(d => path(d, '#667e77', 3)).join('')}<path d="M1381 434 Q1422 404 1470 422 T1495 470 Q1460 501 1422 481 T1381 434Z M1129 307 Q1146 322 1139 350 Q1128 366 1119 340Z M1320 786 Q1360 770 1400 791 Q1370 811 1320 805Z" fill="#87988d" stroke="#657a72" stroke-width="2"/>${ranges.map(range).join('')}${forests.map(a => forest(a[0], a[1], a[2], a[3], a[4])).join('')}${mountain(1095, 244, 1.75)}${mountain(1304, 681, 1.7)}</g><g fill="#64523b" text-anchor="middle" font-family="Georgia,serif" letter-spacing="4" font-weight="bold" class="region">${regions.map(([n, x, y, s, r]) => `<text x="${x}" y="${y}" font-size="${s}" transform="rotate(${r || 0} ${x} ${y})" opacity=".83" style="paint-order:stroke;stroke:#d8c393;stroke-width:2">${n}</text>`).join('')}</g><g fill="#37483d" font-family="Georgia,serif" font-size="13" font-style="italic" letter-spacing="2"><text x="1012" y="578" transform="rotate(42 1012 578)">Anduin</text><text x="1450" y="480" text-anchor="middle">Mar de Rhûn</text></g><g transform="translate(117 145)" stroke="#665c44" fill="none"><circle r="43"/><circle r="35" stroke-width=".8"/><path d="M0 -61 9 -9 61 0 9 9 0 61 -9 9 -61 0 -9 -9Z" fill="#e7d4a3"/><path d="M0 -61 0 0 61 0 9 9 0 61 0 0 -61 0 -9 -9Z" fill="#736044"/><g stroke="none" fill="#504634" font-size="16" text-anchor="middle"><text y="-69">N</text><text y="82">S</text><text x="73" y="5">L</text><text x="-73" y="5">O</text></g></g><g transform="translate(142 815)" fill="#4c5d51" stroke="#4c5d51" stroke-width="1.4"><path d="M-34 9 31 9 19 22 -21 22Z" fill="#6d6e52"/><path d="M0 8V-43M0 -40 -26 2 -1 2Z M3 -33 25 2 3 2Z" fill="#e2d2a4"/><path d="M-45 30q10 -5 20 0t20 0t20 0t20 0" fill="none"/></g><g transform="translate(100 920)" fill="#574c37" font-family="Georgia,serif"><text font-size="20" letter-spacing="4">TERRA-MÉDIA</text><text y="23" font-size="10" letter-spacing="3">CARTOGRAFIA ILUSTRATIVA</text><path d="M0 36h210m-210 0v5m210 -5v5" stroke="#574c37" fill="none"/></g><g id="pins">${places.map((p, i) => `<g class="place" data-index="${i}" transform="translate(${p.x} ${p.y})" tabindex="0" role="button" aria-label="${p.name}"><circle class="halo" r="15" fill="#f4d28c" stroke="#7d5334"/><circle r="13" fill="transparent"/><path class="pin" d="M0 -7 7 0 0 7 -7 0Z" fill="#6a3928" stroke="#f1dba6" stroke-width="1.6"/><circle r="2" fill="#f6dfb0"/><text x="${p.x > 1250 ? -12 : 12}" y="${p.name === 'Abismo de Helm' ? 20 : p.name === 'Erebor' ? -9 : 4}" text-anchor="${p.x > 1250 ? 'end' : 'start'}" fill="#332d20" font-weight="bold" font-size="14" font-family="Georgia,serif">${p.name}</text></g>`).join('')}</g><rect x="10" y="10" width="1580" height="980" fill="none" stroke="#665538" stroke-width="2" opacity=".65" pointer-events="none"/></svg>`;
+world.innerHTML = svg;
+document.getElementById('mini-land').setAttribute('d', land);
+let fit = 1, scale = 1, x = 0, y = 0, space = false, dragged = false;
+const pointers = new Map();
+function constrain() { let vw = viewport.clientWidth, vh = viewport.clientHeight; x = W * scale <= vw ? (vw - W * scale) / 2 : Math.min(0, Math.max(vw - W * scale, x)); y = H * scale <= vh ? (vh - H * scale) / 2 : Math.min(0, Math.max(vh - H * scale, y)); }
+function draw() { constrain(); world.style.transform = `translate(${x}px,${y}px) scale(${scale})`; $('zoom-level').textContent = `${Math.round(scale / fit * 100)}%`; $('minus').disabled = scale <= fit + .00001; $('plus').disabled = scale >= fit * 5 - .00001; const r = document.getElementById('mini-view'); const left = Math.max(0, -x / scale), top = Math.max(0, -y / scale); r.setAttribute('x', `${left}`); r.setAttribute('y', `${top}`); r.setAttribute('width', `${Math.min(W - left, viewport.clientWidth / scale)}`); r.setAttribute('height', `${Math.min(H - top, viewport.clientHeight / scale)}`); }
+function reset() { fit = Math.min(viewport.clientWidth / W, viewport.clientHeight / H); scale = fit; x = (viewport.clientWidth - W * scale) / 2; y = (viewport.clientHeight - H * scale) / 2; draw(); }
+function zoom(factor, px = viewport.clientWidth / 2, py = viewport.clientHeight / 2) { const next = Math.max(fit, Math.min(fit * 5, scale * factor)); x = px - (px - x) * next / scale; y = py - (py - y) * next / scale; scale = next; draw(); }
+function local(e) { const rect = viewport.getBoundingClientRect(); return { x: e.clientX - rect.left - viewport.clientLeft, y: e.clientY - rect.top - viewport.clientTop }; }
+$('plus').onclick = e => { zoom(1.3); if (e.detail)
+    viewport.focus({ preventScroll: true }); };
+$('minus').onclick = e => { zoom(1 / 1.3); if (e.detail)
+    viewport.focus({ preventScroll: true }); };
+$('reset').onclick = e => { reset(); if (e.detail)
+    viewport.focus({ preventScroll: true }); };
+viewport.addEventListener('wheel', e => { if (e.target.closest('.search-box,#detail,.map-tools'))
+    return; e.preventDefault(); let p = local(e); zoom(Math.exp(-e.deltaY * .0015), p.x, p.y); }, { passive: false });
+function interactive(t) { return t instanceof Element && !!t.closest('input,button,dialog,.search-box,#detail,.map-tools'); }
+window.addEventListener('keydown', e => { if (interactive(e.target) || $('help-dialog').open)
+    return; if (e.code === 'Space') {
+    if (e.target?.closest?.('.place'))
+        return;
+    e.preventDefault();
+    space = true;
+    viewport.classList.add('space');
+} if (document.activeElement === viewport) {
+    const step = 70;
+    if (e.key === 'ArrowLeft')
+        x += step;
+    else if (e.key === 'ArrowRight')
+        x -= step;
+    else if (e.key === 'ArrowUp')
+        y += step;
+    else if (e.key === 'ArrowDown')
+        y -= step;
+    else if (e.key === '+' || e.key === '=') {
+        zoom(1.3);
+        e.preventDefault();
+        return;
+    }
+    else if (e.key === '-') {
+        zoom(1 / 1.3);
+        e.preventDefault();
+        return;
+    }
+    else if (e.key === 'Home') {
+        reset();
+        e.preventDefault();
+        return;
+    }
+    else
+        return;
+    e.preventDefault();
+    draw();
+} });
+window.addEventListener('keyup', e => { if (e.code === 'Space') {
+    space = false;
+    viewport.classList.remove('space');
+} });
+function finish() { pointers.clear(); space = false; viewport.classList.remove('space', 'dragging'); }
+window.addEventListener('blur', finish);
+viewport.addEventListener('pointerdown', e => { if (interactive(e.target))
+    return; dragged = false; if (e.pointerType === 'mouse' && !(space && e.button === 0) && e.button !== 1)
+    return; e.preventDefault(); pointers.set(e.pointerId, local(e)); viewport.setPointerCapture(e.pointerId); viewport.classList.add('dragging'); });
+viewport.addEventListener('pointermove', e => { let old = pointers.get(e.pointerId); if (!old)
+    return; const p = local(e); if (Math.hypot(p.x - old.x, p.y - old.y) > 1)
+    dragged = true; if (pointers.size === 2) {
+    const other = [...pointers.entries()].find(([id]) => id !== e.pointerId)[1];
+    const d = Math.hypot(old.x - other.x, old.y - other.y);
+    const nd = Math.hypot(p.x - other.x, p.y - other.y);
+    const ox = (old.x + other.x) / 2, oy = (old.y + other.y) / 2;
+    const nx = (p.x + other.x) / 2, ny = (p.y + other.y) / 2;
+    x += nx - ox;
+    y += ny - oy;
+    if (d > 0)
+        zoom(nd / d, nx, ny);
+}
+else {
+    x += p.x - old.x;
+    y += p.y - old.y;
+    draw();
+} pointers.set(e.pointerId, p); });
+function pointerEnd(e) { if (!pointers.has(e.pointerId))
+    return; pointers.delete(e.pointerId); if (!pointers.size)
+    viewport.classList.remove('dragging'); if (e.pointerType !== 'mouse' && !dragged && e.type === 'pointerup') {
+    const target = document.elementFromPoint(e.clientX, e.clientY)?.closest('.place');
+    if (target)
+        select(Number(target.getAttribute('data-index')), false);
+} }
+viewport.addEventListener('pointerup', pointerEnd);
+viewport.addEventListener('pointercancel', pointerEnd);
+viewport.addEventListener('lostpointercapture', pointerEnd);
+function select(i, center) { const p = places[i]; if (!p)
+    return; document.querySelectorAll('.place.selected').forEach(el => el.classList.remove('selected')); document.querySelector(`.place[data-index="${i}"]`)?.classList.add('selected'); $('kind').textContent = p.kind; $('place-name').textContent = p.name; $('description').textContent = p.description; $('detail').hidden = false; results.hidden = true; if (center) {
+    scale = Math.max(scale, fit * 2.2);
+    x = viewport.clientWidth / 2 - p.x * scale;
+    y = viewport.clientHeight / 2 - p.y * scale;
+    draw();
+} }
+world.addEventListener('click', e => { if (space || dragged)
+    return; let pin = e.target.closest('.place'); if (pin)
+    select(Number(pin.getAttribute('data-index')), false); });
+world.addEventListener('keydown', e => { let pin = e.target.closest('.place'); if (pin && (e.key === 'Enter' || e.key === ' ')) {
+    e.preventDefault();
+    select(Number(pin.getAttribute('data-index')), false);
+} });
+$('close').onclick = () => { $('detail').hidden = true; document.querySelectorAll('.place.selected').forEach(el => el.classList.remove('selected')); };
+function norm(s) { return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase(); }
+function matches() { let q = norm(search.value.trim()); return q ? places.map((p, i) => ({ p, i })).filter(({ p }) => norm(p.name).includes(q)) : []; }
+search.addEventListener('input', () => { let m = matches(); results.hidden = !search.value.trim(); results.replaceChildren(); for (let { p, i } of m) {
+    let b = document.createElement('button');
+    b.textContent = p.name;
+    b.onclick = () => { search.value = p.name; select(i, true); search.blur(); };
+    results.append(b);
+} if (!m.length && search.value.trim()) {
+    let p = document.createElement('p');
+    p.textContent = 'Nenhum local encontrado.';
+    p.style.fontSize = '13px';
+    results.append(p);
+} });
+search.addEventListener('keydown', e => { if (e.key === 'Enter') {
+    const m = matches();
+    if (m.length) {
+        search.value = m[0].p.name;
+        select(m[0].i, true);
+        search.blur();
+    }
+} if (e.key === 'Escape')
+    results.hidden = true; });
+const help = $('help-dialog');
+$('help').onclick = () => help.showModal();
+$('help-close').onclick = () => help.close();
+new ResizeObserver(reset).observe(viewport);
+reset();
+</script></body></html>
